@@ -2,28 +2,26 @@ import React from 'react';
 
 import './Main.css';
 
-const Main = () => (
+const Main = props => (
   <main>
     <ul>
-      <li className="dev-item">
-        <header>
-          <img
-            src="https://avatars2.githubusercontent.com/u/28114515?s=460&v=4"
-            alt="Alex Junior"
-          />
-          <div className="user-info">
-            <strong>Alex Junior</strong>
-            <span>ReactJs, Redux, NodeJs</span>
-          </div>
-        </header>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          reiciendis non voluptates temporibus aspernatur eveniet vel nulla sint
-          deserunt saepe id error consequatur quas nostrum tenetur recusandae
-          ipsam, libero cum.
-        </p>
-        <a href="https://github.com/Alexjununo">Acessar Perfil GitHub</a>
-      </li>
+      {props.devs.length > 0
+        ? props.devs.map(dev => (
+            <li className="dev-item" key={dev._id}>
+              <header>
+                <img src={dev.avatar_url} alt={dev.name} />
+                <div className="user-info">
+                  <strong>{dev.name}</strong>
+                  <span>ReactJs, Redux, NodeJs</span>
+                </div>
+              </header>
+              <p>{dev.bio}</p>
+              <a href={`https://github.com/${dev.github_username}`}>
+                Acessar Perfil GitHub
+              </a>
+            </li>
+          ))
+        : ''}
     </ul>
   </main>
 );
