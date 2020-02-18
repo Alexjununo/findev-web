@@ -14,7 +14,7 @@ const Sidebar = props => (
           type="text"
           required
           value={props.github_username}
-          onChange={e => props.handleGithubUsername(e.target.value)}
+          onChange={props.handleGithubUsername}
         />
       </div>
       <div className="input-block">
@@ -25,7 +25,7 @@ const Sidebar = props => (
           type="text"
           required
           value={props.techs}
-          onChange={e => props.handleTechs(e.target.value)}
+          onChange={props.handleTechs}
         />
       </div>
       <div className="input-group">
@@ -36,7 +36,7 @@ const Sidebar = props => (
             name="latitude"
             id="latitude"
             type="number"
-            onChange={e => props.handleLatitude(e.target.value)}
+            onChange={props.handleLatitude}
             required
           />
         </div>
@@ -47,7 +47,7 @@ const Sidebar = props => (
             name="longitude"
             id="longitude"
             type="number"
-            onChange={e => props.handleLongitude(e.target.value)}
+            onChange={props.handleLongitude}
             required
           />
         </div>
